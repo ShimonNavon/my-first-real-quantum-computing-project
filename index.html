@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="A beginner-friendly Shor's algorithm and quantum computing learning project by Shimon Navon." />
+  <title>QuantumShor Lab</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="background-grid" aria-hidden="true"></div>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="QuantumShor Lab home">
+      <span class="brand-mark">Q</span>
+      <span>QuantumShor Lab</span>
+    </a>
+    <nav>
+      <a href="#demo">Demo</a>
+      <a href="#architecture">Architecture</a>
+      <a href="#learn">Learn</a>
+      <a class="nav-cta" href="https://github.com/ShimonNavon/my-first-real-quantum-computing-project" target="_blank" rel="noreferrer">GitHub ↗</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero section-shell">
+      <div class="eyebrow">MY FIRST REAL QUANTUM COMPUTING PROJECT</div>
+      <h1>From a browser to a <span>real quantum chip.</span></h1>
+      <p class="hero-copy">
+        A hands-on project for understanding Shor's algorithm, quantum circuits, and how ordinary software can eventually submit work to a real QPU.
+      </p>
+      <div class="hero-actions">
+        <a class="button primary" href="#demo">Try the demo</a>
+        <a class="button secondary" href="#architecture">See how it works</a>
+      </div>
+
+      <div class="chip-comparison" aria-label="CPU GPU and QPU comparison">
+        <article>
+          <span class="chip-label">CPU</span>
+          <h3>General computing</h3>
+          <p>Operating systems, browsers, databases and everyday programs.</p>
+        </article>
+        <article>
+          <span class="chip-label">GPU</span>
+          <h3>Parallel computing</h3>
+          <p>AI, graphics, simulation and huge amounts of repeated math.</p>
+        </article>
+        <article class="featured-card">
+          <span class="chip-label">QPU</span>
+          <h3>Quantum algorithms</h3>
+          <p>Specialized problems where quantum mechanics can provide an advantage.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="demo" class="section-shell section-block">
+      <div class="section-heading">
+        <div>
+          <div class="eyebrow">INTERACTIVE WALKTHROUGH</div>
+          <h2>Factor a small number.</h2>
+        </div>
+        <span class="status-pill">Classical prototype</span>
+      </div>
+      <p class="section-intro">
+        This first website milestone uses normal JavaScript to demonstrate the experience. The next milestone replaces the calculation layer with Python + Qiskit.
+      </p>
+
+      <div class="demo-panel">
+        <div class="demo-controls">
+          <label for="number-input">Choose a composite number</label>
+          <div class="input-row">
+            <input id="number-input" type="number" min="4" max="9999" value="15" inputmode="numeric" />
+            <button id="factor-button" class="button primary" type="button">Factor number</button>
+          </div>
+          <div class="quick-values" aria-label="Example numbers">
+            <button type="button" data-value="15">15</button>
+            <button type="button" data-value="21">21</button>
+            <button type="button" data-value="35">35</button>
+            <button type="button" data-value="77">77</button>
+          </div>
+          <p id="demo-message" class="demo-message" aria-live="polite">Ready to factor 15.</p>
+        </div>
+
+        <div class="flow" aria-label="Factorization flow">
+          <div class="flow-node">
+            <small>INPUT</small>
+            <strong id="flow-input">15</strong>
+          </div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-node quantum-node">
+            <small>ALGORITHM LAYER</small>
+            <strong id="flow-engine">Prototype</strong>
+          </div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-node">
+            <small>RESULT</small>
+            <strong id="flow-result">3 × 5</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="architecture" class="section-shell section-block">
+      <div class="eyebrow">TARGET ARCHITECTURE</div>
+      <h2>How the real version will work.</h2>
+      <div class="architecture-grid">
+        <article class="architecture-card">
+          <span>01</span>
+          <h3>Browser</h3>
+          <p>The user chooses a tiny demonstration number and starts an experiment.</p>
+        </article>
+        <article class="architecture-card">
+          <span>02</span>
+          <h3>FastAPI</h3>
+          <p>A Python backend validates the request and controls the quantum workflow.</p>
+        </article>
+        <article class="architecture-card">
+          <span>03</span>
+          <h3>Qiskit</h3>
+          <p>Python builds and transpiles the quantum circuit for an available backend.</p>
+        </article>
+        <article class="architecture-card featured-card">
+          <span>04</span>
+          <h3>QPU</h3>
+          <p>A real quantum processor executes the circuit and returns measurements.</p>
+        </article>
+        <article class="architecture-card">
+          <span>05</span>
+          <h3>Classical post-processing</h3>
+          <p>The application interprets measurements and derives candidate factors.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="learn" class="section-shell section-block">
+      <div class="learn-panel">
+        <div>
+          <div class="eyebrow">THE IMPORTANT IDEA</div>
+          <h2>A QPU does not replace your computer.</h2>
+        </div>
+        <p>
+          Your CPU still runs the application. A quantum processor acts more like a specialized accelerator: the classical program prepares a particular quantum task, sends it to the QPU, receives measurements, and continues processing the answer.
+        </p>
+      </div>
+
+      <div class="roadmap">
+        <div class="roadmap-item done"><span>✓</span><div><strong>Website shell</strong><p>Explain the project clearly and make it shareable.</p></div></div>
+        <div class="roadmap-item done"><span>✓</span><div><strong>Interactive walkthrough</strong><p>Prototype the factorization user experience.</p></div></div>
+        <div class="roadmap-item"><span>3</span><div><strong>Qiskit simulator</strong><p>Move the computation into a Python quantum backend.</p></div></div>
+        <div class="roadmap-item"><span>4</span><div><strong>Real QPU</strong><p>Submit a tiny educational circuit to accessible quantum hardware.</p></div></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer section-shell">
+    <p>Built by <a href="https://github.com/ShimonNavon" target="_blank" rel="noreferrer">Shimon Navon</a> as a hands-on quantum computing learning project.</p>
+    <p class="fine-print">Educational demonstrations only — not a tool for breaking real-world cryptography.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
